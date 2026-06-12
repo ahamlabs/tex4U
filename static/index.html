@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local LaTeX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="toolbar">
+    <button id="compile-btn">Compile</button>
+    <span id="status"></span>
+    <button id="download-btn" disabled>Download PDF</button>
+    <button id="new-project-btn">New Project</button>
+    <button id="toggle-files-btn">Files ▸</button>
+  </div>
+  <div id="main">
+    <div id="files-panel" class="collapsed">
+      <div id="files-header">
+        <span>Project Files</span>
+        <button id="close-files-btn">✕</button>
+      </div>
+      <!-- Mode selector -->
+      <div id="mode-selector">
+        <label><input type="radio" name="workspace-mode" value="temp" checked> Temp</label>
+        <label><input type="radio" name="workspace-mode" value="custom"> Custom</label>
+        <div id="custom-path-area" style="display:none">
+          <input type="text" id="custom-path-input" placeholder="/absolute/path/to/project">
+        </div>
+      </div>
+      <!-- File upload -->
+      <div id="files-upload">
+        <input type="file" id="file-input" multiple>
+        <button id="upload-btn">Upload</button>
+      </div>
+      <div id="file-tree"></div>
+    </div>
+    <div id="preview-pane">
+      <iframe id="pdf-frame" src="" width="100%" height="100%"></iframe>
+    </div>
+    <div id="editor-pane">
+      <textarea id="editor"></textarea>
+    </div>
+  </div>
+  <div id="log"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/stex/stex.min.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
